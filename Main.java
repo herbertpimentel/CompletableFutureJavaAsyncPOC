@@ -94,6 +94,9 @@ public class Main {
 
         List<Long> result = (List<Long>) completableFuture.get();
 
+        // release the "thread manager resource"
+        executor.shutdown();
+
         long tEnd = System.currentTimeMillis();        
 
         System.out.println(result);
